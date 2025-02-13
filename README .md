@@ -1,7 +1,29 @@
-### The three files submitted should be downloaded in same directory and open the terminal in the same directory and use command make then we can give command as given in project.
+# Infinite Precision Arithmetic
 
-## My project has limitations such as dividing a number by zero, if the output is zero the output will not be displayed. 
+## Overview
+Infinite Precision Arithmetic is a project that enables precise arithmetic operations beyond standard data type limitations. It follows an Object-Oriented Programming (OOP) approach.
 
-## We designed class Float to work with the help of class Integer so in this process for complete access we made class Integer and class Float to be friends.
+## Features
+- Supports large number arithmetic.
+- Uses OOP for modularity and reusability.
+- Integer and Float classes work together as friends.
 
-## We changed our view on coding from procedure oriented to object oriented with the interfaces used in this code.
+## Limitations
+- Division by zero is not handled.
+- Zero output is not displayed.
+
+## Compilation & Usage
+1. Download all files into the same directory.
+2. Open a terminal in that directory.
+3. Compile using:
+   ```sh
+   make
+   ```
+4. Run the program as per the project instructions.
+
+## Future Improvements
+- Handle division by zero.
+- Display zero outputs correctly.
+
+## License
+Open-source and free to use.
