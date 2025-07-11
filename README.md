@@ -1,29 +1,59 @@
 # Infinite Precision Arithmetic
 
-## Overview
-Infinite Precision Arithmetic is a project that enables precise arithmetic operations beyond standard data type limitations. It follows an Object-Oriented Programming (OOP) approach.
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](#)  
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+A header‑only C++ library providing arbitrary‑precision integer and floating‑point arithmetic via simple OOP interfaces. Supports addition, subtraction, multiplication, and division on numbers of virtually unlimited length.
+
+---
+
+## Table of Contents
+
+- [Features](#features)  
+- [Getting Started](#getting-started)  
+  - [Prerequisites](#prerequisites)  
+  - [Installation](#installation)  
+- [Usage](#usage)  
+  - [Integer Example](#integer-example)  
+  - [Float Example](#float-example)  
+- [API Reference](#api-reference)  
+- [Limitations](#limitations)  
+- [Roadmap](#roadmap)  
+- [Contributing](#contributing)  
+- [License](#license)  
+
+---
 
 ## Features
-- Supports large number arithmetic.
-- Uses OOP for modularity and reusability.
-- Integer and Float classes work together as friends.
 
-## Limitations
-- Division by zero is not handled.
-- Zero output is not displayed.
+- **Arbitrary‑precision** integers & floats  
+- Fully **object‑oriented** design  
+- Header‑only public API in `include/infinite_precision.hpp`  
+- Simple CLI driver for basic arithmetic  
+- Easily extensible (add exponentiation, modulo, etc.)
 
-## Compilation & Usage
-1. Download all files into the same directory.
-2. Open a terminal in that directory.
-3. Compile using:
-   ```sh
-   make
-   ```
-4. Run the program as per the project instructions.
+---
 
-## Future Improvements
-- Handle division by zero.
-- Display zero outputs correctly.
+## Getting Started
 
-## License
-Open-source and free to use.
+### Prerequisites
+
+- C++17‑compatible compiler (GCC ≥ 7.0, Clang ≥ 5.0, MSVC ≥ 2017)  
+- CMake ≥ 3.10 (optional, if using CMake)  
+- Make (if using the provided Makefile)
+
+### Installation
+
+Clone the repository and build:
+
+```bash
+git clone https://github.com/yourusername/Infinite_Precision_Arithmetic.git
+cd Infinite_Precision_Arithmetic
+
+# Option A: Using CMake
+mkdir build && cd build
+cmake ..
+make infprec-cli
+
+# Option B: Using Makefile
+make

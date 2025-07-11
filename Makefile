@@ -1,20 +1,14 @@
-CXX=g++
-CXXFLAGS=-c -Wall
-SOURCES=implementation.cpp
-OBJECTS=$(SOURCES:.cpp=.o)
-LIBRARY=lib_infinite_arithmetic.a
-EXECUTABLE=my_inf_arith
 
-all: $(SOURCES) $(EXECUTABLE)
+CXX = g++
+CXXFLAGS = -std=c++17 -Iinclude -O2
 
-$(EXECUTABLE): $(OBJECTS)
-	$(CXX) $(OBJECTS) -o $@
+SRC = src/main.cpp src/integer.cpp src/floating.cpp
+OBJ = $(SRC:.cpp=.o)
 
-.cpp.o:
-	$(CXX) $(CXXFLAGS) $< -o $@
+all: infprec-cli
 
-$(LIBRARY): $(OBJECTS)
-	ar rcs $@ $(OBJECTS)
+infprec-cli: $(OBJ)
+    $(CXX) $(CXXFLAGS) -o $@ $^
 
 clean:
-	rm -rf $(OBJECTS) $(EXECUTABLE) $(LIBRARY)
+    rm -f $(OBJ) infprec-cli
