@@ -1,4 +1,4 @@
-#include "infinite_precision.hpp"
+#include "../include/infinite_precision.hpp"
 #include <algorithm>
 
 
@@ -7,14 +7,9 @@ namespace InfiniteArithmetic
     void Integer::parse(std::string &str)
     {
         if (str[0] == '0')
-        {
             while (str[0] == '0') str.erase(0, 1);
-        }
-
         if (str[0] == '-')
-        {
             while (str[1] == '0') str.erase(1, 1);
-        }
     }
 
     Integer Integer::operator+(Integer b) // adding two Integer classes and returnig them
@@ -34,16 +29,13 @@ namespace InfiniteArithmetic
             int num = b.str.size();
 
             for (int i = 0; i < dummy.str.size() - num; i++)
-            {
                 b.str.insert(0, 1, '0');
-            } // now both are of equal size
+            // now both are of equal size
 
             std::string c(b.str.size() + 1, '0'); // result is stored in this
 
             for (int i = 1; i <= dummy.str.size(); i++)
-            {
                 c[b.str.size() - i + 1] = (dummy.str[b.str.size() - i] + b.str[b.str.size() - i] - '0');
-            }
 
             for (int i = 0; i <= dummy.str.size() - 1; i++)
             { // borrowing takes place here
@@ -53,9 +45,7 @@ namespace InfiniteArithmetic
                     c[b.str.size() - i - 1] += 1;
                 }
             }
-
             parse(c);
-
             return Integer(c);
         }
         // this cases are done by erasing - and manipulating with help additon ,substraction of +ve ints
@@ -82,7 +72,6 @@ namespace InfiniteArithmetic
             dummy.sign = 0;
             b.str.erase(0, 1);
             b.sign = 0;
-
             Integer t = b + dummy;
             t.str.insert(0, 1, '-');
             return t;
@@ -109,17 +98,12 @@ namespace InfiniteArithmetic
             int num = b.str.size();
 
             for (int i = 0; i < dummy.str.size() - num; i++)
-            {
                 b.str.insert(0, 1, '0');
-            }
 
             std::string c(b.str.size() + 1, '\0');
 
             for (int i = 1; i <= dummy.str.size(); i++)
-            {
-
                 c[b.str.size() - i + 1] = char(int(dummy.str[b.str.size() - i]) - int(b.str[b.str.size() - i]));
-            }
 
             for (int i = 0; i < b.str.size(); i++)
             {
@@ -133,9 +117,7 @@ namespace InfiniteArithmetic
             if (c[0] == -1) // this happens only when same sized ints with first one small than second for this a trick is used
             {
                 for (int i = 0; i <= dummy.str.size(); i++)
-                {
                     c[i] = -c[i];
-                }
 
                 for (int i = 0; i < b.str.size(); i++)
                 {
@@ -145,19 +127,14 @@ namespace InfiniteArithmetic
                         c[b.str.size() - i] = c[b.str.size() - i] + 10;
                     }
                 }
-
                 c.insert(0, 1, '-' - '0');
             }
 
             for (int i = 0; i <= c.size(); i++)
-            {
                 c[i] = c[i] + '0';
-            }
-
+            
             if (minus_indicator == 1)
-            {
                 c.insert(0, 1, '-');
-            }
 
             parse(c);
             Integer result = Integer(c);
@@ -203,9 +180,7 @@ namespace InfiniteArithmetic
             for (int i = 0; i < b.str.size(); i++)
             {
                 for (int j = 0; j < b.str[b.str.size() - i - 1] - '0'; j++)
-                {
                     product = product + dummy; // adding to result
-                }
                 dummy.str.push_back('0'); // indirectly multiplying by 10
             }
             return product;
@@ -219,7 +194,6 @@ namespace InfiniteArithmetic
             Integer t = dummy * b;
             t.str.insert(0, 1, '-');
             t.sign = 1;
-
             return t;
         }
 
@@ -231,7 +205,6 @@ namespace InfiniteArithmetic
             b.str.erase(0, 1);
             b.sign = 0;
             Integer t = dummy * b;
-
             return t;
         }
 
@@ -243,7 +216,6 @@ namespace InfiniteArithmetic
             Integer t = dummy * b;
             t.str.insert(0, 1, '-');
             t.sign = 1;
-
             return t;
         }
 
@@ -259,32 +231,23 @@ namespace InfiniteArithmetic
             parse(dummy.str);
 
             if (dummy.str.size() > b.str.size())
-            {
                 return 1;
-            }
 
             else if (b.str.size() > dummy.str.size())
-            {
                 return 0;
-            }
 
             else
             {
                 for (int i = 0; i < dummy.str.size(); i++)
                 {
                     if (dummy.str[i] > b.str[i])
-                    {
                         return 1;
-                    }
 
                     else if (dummy.str[i] < b.str[i])
-                    {
                         return 0;
-                    }
                 }
             }
         }
-
         return 0;
     }
 

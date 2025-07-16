@@ -1,4 +1,5 @@
-#include "infinite_precision.hpp"
+#include "../include/infinite_precision.hpp"
+
 #include <algorithm>
 
 

@@ -1,13 +1,14 @@
-#include "infinite_precision.hpp"
+#include "../include/infinite_precision.hpp"
 #include <iostream>
+using namespace std;
 
 int main(int argc, char *argv[])
 {
     using namespace InfiniteArithmetic;
-    std::string s1 = argv[1];
-    std::string s2 = argv[2];
-    std::string s3 = argv[3];
-    std::string s4 = argv[4];
+    string s1 = argv[1];
+    string s2 = argv[2];
+    string s3 = argv[3];
+    string s4 = argv[4];
 
     if (s1 == "int")
     {
